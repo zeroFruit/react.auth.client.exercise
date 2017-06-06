@@ -1,25 +1,58 @@
-# ReduxSimpleStarter
+# Authentication - Server
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+### Cookies vs Tokens
 
-### Getting Started
+__Cookie__
 
-There are two methods for getting started with this repo.
+The purpose of cookies is to bring state into stateless protocol which is HTTP.
 
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
+In HTTP solely by including these cookies on request can identify us to the server.
 
-```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
-> npm install
-> npm start
-```
+Cookies are included on all HTTP request by default in header.
 
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+Also server can place information into the cookies so later on server can identify that client.
 
-```
-> npm install
-> npm start
-```
+* Automatically included on all requests
+* Unique to each domain ( cannot be shared)
+* Cannot be sent to different domains
+
+
+
+__Token__
+
+* Have to manually wire up
+* Can be sent to any domain
+
+
+
+# Authentication - Client
+
+### Redux Thunk
+
+* ```dispatch``` : Makes sure the action gets sent to all reducers after sent through all different middlewares.
+
+The main purpose of Redux Thunk is that we can directly access ```dispatch``` method.
+
+Redux Thunk returns __function__ instead of object from Action Creator. By returning a function we can directly access to the ```dispatch``` function. And inside of this function we can make any async requests, actions. So we can dispatch action anytime we want.
+
+
+
+### CORS
+
+User on the website which has its own domain, sub-domain, port tries to make AJAX Request to different domain, sub-domain, port.
+
+__The purpose of CORS is soly for protecting the users in the browser__
+
+
+
+### LocalStorage
+
+LocalStorage data is not shared across domains.
+
+
+
+### Dispatch
+
+The same one with Redux Thunk ```dispatch``` is the property of Redux ```store``` 's ```dispatch```.
+
+Big solution for updating our app states before rendering any Components.
